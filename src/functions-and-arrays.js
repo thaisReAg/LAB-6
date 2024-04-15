@@ -108,13 +108,13 @@ const wordsArr = [
 
 function averageWordLength(words) {
   if (!words.length) return null;
-  let result = 0;   
+  let result = 0;
   words.forEach((word) => {
-  result = result + word.length;
+    result = result + word.length;
   });
 
-  return result / words.length; 
-  }
+  return result / words.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -134,16 +134,16 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray(arr) {
+/* function uniquifyArray(arr) {
   let result = [];
 
 
 
   
   return result;
-}
+} */
 
-/* function uniquifyArray(arr) {
+function uniquifyArray(arr) {
   if (!arr.length) return null;
   let result = [];
 
@@ -154,7 +154,7 @@ function uniquifyArray(arr) {
   });
 
   return result;
-} */
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -168,7 +168,12 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(wordArray, wordToSearch) {
+  if (!wordArray.length) {
+    return null;
+  }
+  return wordArray.includes(wordToSearch);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -185,7 +190,15 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordArray, wordToSearch) {
+  let count = 0;
+  wordArray.forEach((word) => {
+    if (word === wordToSearch) {
+      count++;
+    }
+  });
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -253,7 +266,28 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  if (!matrix.length) return 0;
+  let maxResulti = 0;
+  let maxResultj = 0;
+  let maxResult = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < 20; j++) {
+      maxResulti =
+        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      maxResultj =
+        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+    }
+    if (maxResulti > maxResult) {
+      maxResult = maxResulti;
+    } else maxResultj > maxResult;
+    {
+      maxResult = maxResultj;
+    }
+  }
+  return maxResult;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
