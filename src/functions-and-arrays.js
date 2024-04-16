@@ -258,6 +258,66 @@ const matrix = [
 
 function greatestProduct(matrix) {
   if (!matrix.length) return 0;
+
+  let maxResult = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      let productVer = 1;
+      let productHor = 1;
+
+      if (i + 3 < matrix.length) {
+        productVer =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      }
+
+      if (j + 3 < matrix[i].length) {
+        productHor =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      }
+
+      let currentMax = Math.max(productVer, productHor);
+      maxResult = Math.max(maxResult, currentMax);
+    }
+  }
+
+  return maxResult;
+}
+/* function greatestProduct(matrix) {
+  if (!matrix.length) return 0;
+  let maxResult = 1;
+  //iterar sobre las filas = estamos pasando por cada fila, uno por uno, y ejecutando cierto código para cada fila.
+  for (let i = 0; i < matrix.length; i++) {
+    //iteramos sobre las columnas
+    for (let j = 0; j < matrix[i].length; j++) {
+      // Calcular el producto de cuatro números adyacentes verticalmente
+      if (i + 3 < matrix.length) {
+        let productVer =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        // Actualizar el máximo resultado si es mayor
+        if (productVer > maxResult) {
+          maxResult = productVer;
+        }
+      }
+      // Calcular el producto de cuatro números adyacentes horizontalmente
+      if (j + 3 < matrix.length) {
+        let productHor =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+
+        // Actualizar el máximo resultado si es mayor
+
+        if (productHor > maxResult) {
+          maxResult = productHor;
+        }
+      }
+    }
+  }
+
+  return maxResult;
+} */
+
+/* function greatestProduct(matrix) {
+  if (!matrix.length) return 0;
   let maxResulti = 0;
   let maxResultj = 0;
   let maxResult = 0;
@@ -266,7 +326,7 @@ function greatestProduct(matrix) {
     for (let j = 0; j < 20; j++) {
       maxResulti =
         matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
-        
+
       maxResultj =
         matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
     }
@@ -278,7 +338,7 @@ function greatestProduct(matrix) {
     }
   }
   return maxResult;
-}
+} */
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
