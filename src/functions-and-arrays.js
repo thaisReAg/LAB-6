@@ -134,25 +134,15 @@ const wordsUnique = [
   "bring",
 ];
 
-/* function uniquifyArray(arr) {
-  let result = [];
-
-
-
-  
-  return result;
-} */
-
 function uniquifyArray(arr) {
   if (!arr.length) return null;
   let result = [];
 
-  arr.forEach((word) => {
-    if (result.indexOf(word) === -1) {
-      result.push(word);
+  for (let i = 0; i < arr.length; i++) {
+    if (result.indexOf(arr[i]) === -1) {
+      result.push(arr[i]);
     }
-  });
-
+  }
   return result;
 }
 
@@ -191,13 +181,13 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordArray, wordToSearch) {
-  let count = 0;
+  let result = 0;
   wordArray.forEach((word) => {
     if (word === wordToSearch) {
-      count++;
+      result++;
     }
   });
-  return count;
+  return result;
 }
 
 // Iteration #8: Bonus
@@ -276,6 +266,7 @@ function greatestProduct(matrix) {
     for (let j = 0; j < 20; j++) {
       maxResulti =
         matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        
       maxResultj =
         matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
     }
